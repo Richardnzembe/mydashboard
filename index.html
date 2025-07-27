@@ -28,13 +28,11 @@
       --sidebar-gradient: linear-gradient(135deg, var(--primary) 0%, var(--light) 100%);
       --background-gradient: linear-gradient(135deg, #b5bdbc 0%, var(--light) 100%);
     }
-
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
     }
-
     body {
       font-family: 'Open Sans', system-ui, -apple-system, sans-serif;
       background: var(--background-gradient);
@@ -42,7 +40,6 @@
       line-height: 1.6;
       min-height: 100vh;
     }
-
     .header {
       display: flex;
       align-items: center;
@@ -54,7 +51,6 @@
       z-index: 1000;
       box-shadow: var(--shadow);
     }
-
     .header-content {
       display: flex;
       align-items: center;
@@ -62,7 +58,6 @@
       max-width: 1400px;
       margin: 0 auto;
     }
-
     .header img {
       height: 60px; /* Increased size */
       margin-right: 15px;
@@ -73,19 +68,16 @@
       padding: 5px;
       transition: var(--transition);
     }
-
     .header img:hover {
       transform: scale(1.05);
       box-shadow: 0 4px 12px rgba(0,0,0,0.15);
     }
-
     .header h1 {
       font-size: 1.6rem; /* Slightly larger */
       font-weight: 700; /* Bolder */
       flex-grow: 1;
       text-shadow: 0 1px 3px rgba(255,255,255,0.5);
     }
-
     .mobile-menu-btn {
       display: none;
       background: none;
@@ -95,7 +87,6 @@
       cursor: pointer;
       margin-right: 15px;
     }
-
     .container {
       display: flex;
       max-width: 1400px;
@@ -104,7 +95,6 @@
       gap: 25px;
       min-height: calc(100vh - 100px);
     }
-
     .sidebar {
       width: 280px;
       background: var(--sidebar-gradient);
@@ -115,7 +105,6 @@
       transition: var(--transition);
       border: 1px solid rgba(0,0,0,0.05);
     }
-
     .sidebar h2 {
       margin-bottom: 25px;
       padding-bottom: 15px;
@@ -124,7 +113,6 @@
       font-size: 1.4rem;
       font-weight: 600;
     }
-
     .sidebar button, .sidebar a {
       display: flex;
       align-items: center;
@@ -143,31 +131,26 @@
       font-size: 1rem;
       box-shadow: 0 2px 4px rgba(0,0,0,0.05);
     }
-
     .sidebar button i, .sidebar a i {
       margin-right: 12px;
       width: 20px;
       text-align: center;
       color: var(--dark);
     }
-
     .sidebar button:hover, .sidebar a:hover,
     .sidebar button.active, .sidebar a.active {
       background-color: rgba(255,255,255,0.7);
       transform: translateX(5px);
     }
-
     .sidebar .logout-btn {
       margin-top: 20px;
       color: #dc3545;
       background: rgba(220, 53, 69, 0.1);
       border: 1px solid rgba(220, 53, 69, 0.2);
     }
-
     .sidebar .logout-btn:hover {
       background: rgba(220, 53, 69, 0.15);
     }
-
     .user-info {
       display: flex;
       align-items: center;
@@ -178,34 +161,28 @@
       font-size: 0.9rem;
       box-shadow: 0 2px 4px rgba(0,0,0,0.05);
     }
-
     .user-info i {
       font-size: 1.5rem;
       margin-right: 12px;
       color: var(--dark);
     }
-
     .user-details {
       flex-grow: 1;
     }
-
     .user-details div:first-child {
       font-weight: 600;
       margin-bottom: 3px;
     }
-
     .user-details div:last-child {
       font-size: 0.85rem;
       opacity: 0.85;
     }
-
     .content {
       flex-grow: 1;
       display: flex;
       flex-direction: column;
       gap: 25px;
     }
-
     .section {
       background: rgba(255,255,255,0.7);
       border-radius: var(--border-radius);
@@ -215,7 +192,6 @@
       backdrop-filter: blur(5px);
       border: 1px solid rgba(0,0,0,0.05);
     }
-
     .section h3 {
       display: flex;
       justify-content: space-between;
@@ -227,7 +203,6 @@
       font-size: 1.3rem;
       font-weight: 600;
     }
-
     .download-btn {
       background: var(--primary);
       color: var(--dark);
@@ -244,13 +219,11 @@
       box-shadow: 0 2px 4px rgba(0,0,0,0.1);
       border: 1px solid rgba(0,0,0,0.05);
     }
-
     .download-btn:hover {
       background: var(--primary-light);
       transform: translateY(-2px);
       box-shadow: 0 4px 8px rgba(0,0,0,0.1);
     }
-
     .download-btn:disabled {
       background: var(--gray);
       cursor: not-allowed;
@@ -258,7 +231,6 @@
       box-shadow: none;
       opacity: 0.6;
     }
-
     .section-content {
       min-height: 300px;
       display: flex;
@@ -268,19 +240,16 @@
       color: var(--gray);
       padding: 20px;
     }
-
     .section-content i {
       font-size: 3rem;
       margin-bottom: 20px;
       color: var(--light-gray);
     }
-
     .section-content p {
       max-width: 500px;
       text-align: center;
       font-size: 1.1rem;
     }
-
     .table-container {
       width: 100%;
       overflow-x: auto;
@@ -289,7 +258,6 @@
       background: white;
       border: 1px solid rgba(0,0,0,0.05);
     }
-
     table {
       width: 100%;
       border-collapse: separate;
@@ -300,7 +268,6 @@
       overflow: hidden;
       background: rgba(255,255,255,0.8);
     }
-
     table th {
       background: rgba(177, 197, 164, 0.5);
       color: var(--dark);
@@ -311,34 +278,27 @@
       border-right: 1px solid rgba(0,0,0,0.1); /* Column separator */
       border-bottom: 2px solid rgba(0,0,0,0.1); /* Stronger bottom border */
     }
-
     /* Remove border from last column */
     table th:last-child {
       border-right: none;
     }
-
     table td {
       padding: 12px 15px;
       border-bottom: 1px solid rgba(0,0,0,0.05);
       border-right: 1px solid rgba(0,0,0,0.05); /* Column separator */
     }
-
     table td:last-child {
       border-right: none;
     }
-
     table tr:nth-child(even) {
       background-color: rgba(177, 197, 164, 0.05);
     }
-
     table tr:hover {
       background-color: rgba(177, 197, 164, 0.1);
     }
-
     table tr:last-child td {
       border-bottom: none;
     }
-
     #loginSection {
       max-width: 500px;
       margin: 100px auto;
@@ -350,26 +310,22 @@
       backdrop-filter: blur(5px);
       border: 1px solid rgba(0,0,0,0.05);
     }
-
     #loginSection h2 {
       margin-bottom: 25px;
       color: var(--dark);
       font-size: 1.8rem;
       font-weight: 600;
     }
-
     .input-group {
       margin-bottom: 20px;
       text-align: left;
     }
-
     .input-group label {
       display: block;
       margin-bottom: 8px;
       font-weight: 500;
       color: var(--dark);
     }
-
     #loginSection input {
       width: 100%;
       padding: 14px;
@@ -380,13 +336,11 @@
       font-family: 'Open Sans', sans-serif;
       background: rgba(255,255,255,0.7);
     }
-
     #loginSection input:focus {
       outline: none;
       border-color: var(--primary);
       box-shadow: 0 0 0 3px rgba(177, 197, 164, 0.3);
     }
-
     .btn {
       display: inline-block;
       padding: 12px 25px;
@@ -405,29 +359,25 @@
       box-shadow: 0 4px 8px rgba(0,0,0,0.1);
       border: 1px solid rgba(0,0,0,0.05);
     }
-
     .btn:hover {
       background: var(--primary-light);
       transform: translateY(-2px);
       box-shadow: 0 6px 12px rgba(0,0,0,0.15);
     }
-
     .btn-secondary {
       background: transparent;
       color: var(--dark);
       border: 1px solid var(--primary);
     }
-
     .btn-secondary:hover {
       background: rgba(177, 197, 164, 0.2);
     }
-
     #loginError {
       color: #dc3545;
       margin-top: 15px;
       font-size: 0.9rem;
     }
-
+    /* CHATBOT LINKED TO EXTERNAL URL */
     #chatbot {
       position: fixed;
       bottom: 25px;
@@ -445,61 +395,50 @@
       z-index: 999;
       animation: pulse 2s infinite;
     }
-
     @keyframes pulse {
       0% { box-shadow: 0 0 0 0 rgba(177, 197, 164, 0.7); }
       70% { box-shadow: 0 0 0 12px rgba(177, 197, 164, 0); }
       100% { box-shadow: 0 0 0 0 rgba(177, 197, 164, 0); }
     }
-
     #chatbot:hover {
       transform: scale(1.1);
       box-shadow: 0 8px 25px rgba(0,0,0,0.3);
       animation: none;
     }
-
     /* Responsive Design */
     @media (max-width: 992px) {
       .container {
         flex-direction: column;
       }
-      
       .sidebar {
         width: 100%;
       }
     }
-
     @media (max-width: 768px) {
       .header h1 {
         font-size: 1.3rem;
       }
-      
       .mobile-menu-btn {
         display: block;
       }
-      
       .container {
         padding: 0 15px;
         margin: 15px auto;
       }
-      
       .section {
         padding: 20px;
       }
-      
       #loginSection {
         padding: 30px 20px;
         margin: 50px auto;
       }
-      
       .sidebar {
         display: none;
       }
-      
       .sidebar.active {
         display: block;
       }
-      
+      /* CHATBOT LINKED TO EXTERNAL URL */
       #chatbot {
         width: 60px;
         height: 60px;
@@ -507,32 +446,26 @@
         right: 20px;
       }
     }
-
     @media (max-width: 480px) {
       .header {
         padding: 10px 15px;
       }
-      
       .header img {
         height: 50px;
       }
-      
       .header h1 {
         font-size: 1.1rem;
       }
-      
       .section h3 {
         flex-direction: column;
         align-items: flex-start;
         gap: 15px;
       }
-      
       .download-btn {
         width: 100%;
         justify-content: center;
       }
     }
-
     /* Loading spinner */
     .spinner {
       width: 50px;
@@ -543,24 +476,20 @@
       animation: spin 1s linear infinite;
       margin: 30px auto;
     }
-
     @keyframes spin {
       0% { transform: rotate(0deg); }
       100% { transform: rotate(360deg); }
     }
-
     /* Empty state styling */
     .empty-state {
       text-align: center;
       padding: 40px 20px;
     }
-
     .empty-state i {
       font-size: 3rem;
       color: var(--light-gray);
       margin-bottom: 20px;
     }
-
     .empty-state p {
       color: var(--gray);
       max-width: 400px;
@@ -569,7 +498,6 @@
   </style>
 </head>
 <body>
-
 <div class="header">
   <div class="header-content">
     <button class="mobile-menu-btn" id="mobileMenuBtn">
@@ -579,7 +507,6 @@
     <h1>Dalswin Life and Business Institute</h1>
   </div>
 </div>
-
 <div id="loginSection">
   <h2>Student Login</h2>
   <div class="input-group">
@@ -594,7 +521,6 @@
   <button class="btn btn-secondary" onclick="resetPassword()">Forgot Password?</button>
   <p id="loginError"></p>
 </div>
-
 <div class="container">
   <div class="sidebar" id="sidebar">
     <div class="user-info">
@@ -604,7 +530,6 @@
         <div id="userEmail">student@example.com</div>
       </div>
     </div>
-    
     <h2>Navigation</h2>
     <button class="active" onclick="showSection('homeSection')">
       <i class="fas fa-home"></i> Home
@@ -627,20 +552,19 @@
     <button onclick="showSection('announcementsSection')">
       <i class="fas fa-bullhorn"></i> Announcements
     </button>
-    
     <h2>Resources</h2>
-    <a href="https://canvas.instructure.com/login" id="campusLink">
+    <!-- ONLINE CAMPUS LINKED TO EXTERNAL URL -->
+    <a href="https://canvas.instructure.com/login" target="_blank" id="campusLink">
       <i class="fas fa-laptop"></i> My Online Campus
     </a>
-    <a href="https://lifelight.foundation/useful-links/" id="usefulLinks">
+    <!-- USEFUL LINKS LINKED TO EXTERNAL URL -->
+    <a href="https://lifelight.foundation/useful-links/" target="_blank" id="usefulLinks">
       <i class="fas fa-link"></i> Useful Links
     </a>
-    
     <button class="logout-btn" onclick="logout()">
       <i class="fas fa-sign-out-alt"></i> Logout
     </button>
   </div>
-  
   <div class="content" id="mainContent">
     <div class="section" id="homeSection">
       <h3>
@@ -654,7 +578,6 @@
         <p>Your personalized dashboard will show important updates and information once you log in.</p>
       </div>
     </div>
-    
     <div class="section" id="coursesSection" style="display:none;">
       <h3>
         My Courses
@@ -667,7 +590,6 @@
         <p>Your enrolled courses will appear here after login. You'll be able to access course materials and track your progress.</p>
       </div>
     </div>
-    
     <div class="section" id="progressSection" style="display:none;">
       <h3>
         Academic Progress
@@ -716,7 +638,6 @@
         </div>
       </div>
     </div>
-    
     <div class="section" id="paymentsSection" style="display:none;">
       <h3>
         Payment Information
@@ -729,7 +650,6 @@
         <p>View your tuition statements, payment history, and manage your payment methods.</p>
       </div>
     </div>
-    
     <div class="section" id="advisorSection" style="display:none;">
       <h3>
         Advisor Information
@@ -742,7 +662,6 @@
         <p>Connect with your academic advisor, schedule appointments, and get guidance on your academic path.</p>
       </div>
     </div>
-    
     <div class="section" id="messageSection" style="display:none;">
       <h3>
         Messages
@@ -755,7 +674,6 @@
         <p>Communicate with instructors, advisors, and fellow students through our messaging system.</p>
       </div>
     </div>
-    
     <div class="section" id="announcementsSection" style="display:none;">
       <h3>
         Announcements
@@ -770,9 +688,10 @@
     </div>
   </div>
 </div>
-
-<a href="https://chartbot.lifelight.foundation/" id="Chart Assistance">
-
+<!-- CHATBOT LINKED TO EXTERNAL URL -->
+<a href="https://chartbot.lifelight.foundation/" target="_blank" id="chatbotLink" style="text-decoration: none;">
+  <div id="chatbot" title="Chat Assistant"></div>
+</a>
 <script>
   // Firebase configuration
   const firebaseConfig = {
@@ -783,35 +702,28 @@
     messagingSenderId: "177312727757",
     appId: "1:177312727757:web:5d2d926a71eb12d503df84"
   };
-  
   // Initialize Firebase
   firebase.initializeApp(firebaseConfig);
-  
   // Mobile menu toggle
   document.getElementById('mobileMenuBtn').addEventListener('click', function() {
     document.getElementById('sidebar').classList.toggle('active');
   });
-  
   // Login function
   function login() {
     const email = document.getElementById("email").value.trim();
     const password = document.getElementById("password").value;
     const loginError = document.getElementById("loginError");
-    
     // Basic validation
     if (!email || !password) {
       loginError.textContent = "Please enter both email and password.";
       return;
     }
-    
     loginError.textContent = "";
-    
     // Show loading state
     const loginBtn = document.querySelector('#loginSection .btn');
     const originalText = loginBtn.innerHTML;
     loginBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Logging in...';
     loginBtn.disabled = true;
-    
     firebase.auth().signInWithEmailAndPassword(email, password)
       .then(userCred => {
         // Hide login, show dashboard
@@ -819,7 +731,6 @@
         document.getElementById("sidebar").classList.add('active');
         document.getElementById("mainContent").style.display = "flex";
         document.getElementById("userEmail").textContent = userCred.user.email;
-        
         // Fetch user data
         fetchData(userCred.user.email);
       })
@@ -829,19 +740,15 @@
         loginBtn.disabled = false;
       });
   }
-  
   // Reset password function
   function resetPassword() {
     const email = document.getElementById("email").value.trim();
     const loginError = document.getElementById("loginError");
-    
     if (!email) {
       loginError.textContent = "Please enter your email address to reset your password.";
       return;
     }
-    
     loginError.textContent = "";
-    
     firebase.auth().sendPasswordResetEmail(email)
       .then(() => {
         loginError.textContent = "Password reset link sent to your email!";
@@ -851,47 +758,38 @@
         loginError.textContent = err.message;
       });
   }
-  
   // Logout function
   function logout() {
     firebase.auth().signOut().then(() => {
       location.reload();
     });
   }
-  
   // Show section function
   function showSection(id) {
     // Hide all sections
     document.querySelectorAll('.section').forEach(section => {
       section.style.display = "none";
     });
-    
     // Show selected section
     document.getElementById(id).style.display = "block";
-    
     // Update active button
     document.querySelectorAll('.sidebar button').forEach(button => {
       button.classList.remove('active');
     });
-    
     // Add active class to clicked button
     event.currentTarget.classList.add('active');
-    
     // Close mobile menu after selection
     if (window.innerWidth <= 768) {
       document.getElementById('sidebar').classList.remove('active');
     }
   }
-  
   // Fetch data function
   function fetchData(email) {
     // Show loading state
     document.querySelectorAll('.section-content').forEach(el => {
       el.innerHTML = '<div class="spinner"></div>';
     });
-    
     const url = "https://script.google.com/macros/s/AKfycbzg1RghRrgkgh6Rixe2uX8aL6MwDu9jiuGHtHAvCGytpzdpl19hLvX27kC5NIxRl0ci/exec?email=" + email;
-    
     fetch(url)
       .then(res => res.json())
       .then(data => {
@@ -916,12 +814,10 @@
         });
       });
   }
-  
   // Display section data
   function displaySection(id, rows) {
     const section = document.getElementById(id);
     const contentDiv = section.querySelector('.section-content');
-    
     if (!rows || rows.length === 0) {
       contentDiv.innerHTML = `
         <div class="empty-state">
@@ -931,7 +827,6 @@
       `;
       return;
     }
-    
     const keys = Object.keys(rows[0]);
     let tableHTML = `
       <div class="table-container">
@@ -941,46 +836,37 @@
           </thead>
           <tbody>
     `;
-    
     rows.forEach(row => {
       tableHTML += "<tr>" + keys.map(k => `<td>${row[k]}</td>`).join("") + "</tr>";
     });
-    
     tableHTML += `
           </tbody>
         </table>
       </div>
     `;
-    
     contentDiv.innerHTML = tableHTML;
   }
-  
   // Updated PDF download function
   async function downloadSection(sectionId) {
     const section = document.getElementById(sectionId);
     const downloadBtn = section.querySelector('.download-btn');
     const originalText = downloadBtn.innerHTML;
-    
     // Disable button and show loading
     downloadBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Preparing...';
     downloadBtn.disabled = true;
-    
     if (!section) {
       alert("Section not found.");
       downloadBtn.innerHTML = originalText;
       downloadBtn.disabled = false;
       return;
     }
-
     try {
       const canvas = await html2canvas(section, { scale: 2 });
       const imgData = canvas.toDataURL("image/png");
-
       const pdf = new jspdf.jsPDF('p', 'mm', 'a4');
       const imgProps = pdf.getImageProperties(imgData);
       const pdfWidth = pdf.internal.pageSize.getWidth();
       const pdfHeight = (imgProps.height * pdfWidth) / imgProps.width;
-
       pdf.addImage(imgData, 'PNG', 0, 0, pdfWidth, pdfHeight);
       pdf.save(sectionId + ".pdf");
     } catch (err) {
