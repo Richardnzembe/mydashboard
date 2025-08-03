@@ -12,21 +12,24 @@
   <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <style>
     :root {
-      --primary: #b1c5a4;
-      --primary-light: #c7d5bd;
-      --primary-dark: #9ab294;
-      --secondary: #97bc62;
-      --accent: #f4b942;
-      --light: #f9f9f9;
-      --dark: #3a3a3a;
-      --gray: #6c757d;
-      --light-gray: #e9ecef;
+      /* New calming color scheme */
+      --primary: #4A90E2;      /* Calming blue */
+      --primary-light: #6AA7ED; 
+      --primary-dark: #3A7BC8;
+      --secondary: #50E3C2;    /* Fresh green */
+      --accent: #F5A623;       /* Warm orange for accents */
+      --light: #FFFFFF;        /* Pure white */
+      --dark: #2C3E50;         /* Dark blue-gray for text */
+      --gray: #7F8C8D;         /* Medium gray */
+      --light-gray: #F5F7FA;   /* Very light gray for backgrounds */
       --border-radius: 10px;
       --shadow: 0 4px 12px rgba(0,0,0,0.08);
       --transition: all 0.3s ease;
+      
+      /* Updated gradients */
       --header-gradient: linear-gradient(135deg, var(--primary) 0%, var(--light) 100%);
-      --sidebar-gradient: linear-gradient(135deg, var(--primary) 0%, var(--light) 100%);
-      --background-gradient: linear-gradient(135deg, #b5bdbc 0%, var(--light) 100%);
+      --sidebar-gradient: linear-gradient(135deg, var(--primary) 0%, var(--light-gray) 100%);
+      --background-gradient: linear-gradient(135deg, #E8EDF3 0%, var(--light-gray) 100%);
     }
     * {
       margin: 0;
@@ -45,7 +48,7 @@
       align-items: center;
       background: var(--header-gradient);
       padding: 12px 24px;
-      color: var(--dark);
+      color: var(--light);
       position: sticky;
       top: 0;
       z-index: 1000;
@@ -59,11 +62,11 @@
       margin: 0 auto;
     }
     .header img {
-      height: 60px; /* Increased size */
+      height: 60px;
       margin-right: 15px;
       filter: drop-shadow(0 2px 4px rgba(0,0,0,0.1));
-      border: 3px solid white; /* Added border */
-      border-radius: 10px; /* Rounded corners */
+      border: 3px solid rgba(255,255,255,0.3);
+      border-radius: 10px;
       background: white;
       padding: 5px;
       transition: var(--transition);
@@ -73,16 +76,36 @@
       box-shadow: 0 4px 12px rgba(0,0,0,0.15);
     }
     .header h1 {
-      font-size: 1.6rem; /* Slightly larger */
-      font-weight: 700; /* Bolder */
+      font-size: 1.6rem;
+      font-weight: 700;
       flex-grow: 1;
-      text-shadow: 0 1px 3px rgba(255,255,255,0.5);
+      text-shadow: 0 1px 3px rgba(0,0,0,0.2);
+    }
+    .header-clock {
+      margin-left: auto;
+      text-align: right;
+      padding: 0 15px;
+      font-size: 0.95rem;
+      font-weight: 500;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      color: white;
+      text-shadow: 0 1px 2px rgba(0,0,0,0.2);
+    }
+    .header-date {
+      font-weight: 600;
+      margin-bottom: 3px;
+    }
+    .header-time {
+      font-size: 1.1rem;
+      font-weight: 700;
     }
     .mobile-menu-btn {
       display: none;
       background: none;
       border: none;
-      color: var(--dark);
+      color: white;
       font-size: 1.5rem;
       cursor: pointer;
       margin-right: 15px;
@@ -97,7 +120,7 @@
     }
     .sidebar {
       width: 280px;
-      background: var(--sidebar-gradient);
+      background: var(--light);
       border-radius: var(--border-radius);
       box-shadow: var(--shadow);
       padding: 25px 15px;
@@ -121,7 +144,7 @@
       padding: 12px 15px;
       border: none;
       border-radius: 8px;
-      background: rgba(255,255,255,0.4);
+      background: rgba(74, 144, 226, 0.1);
       color: var(--dark);
       text-decoration: none;
       text-align: left;
@@ -135,27 +158,28 @@
       margin-right: 12px;
       width: 20px;
       text-align: center;
-      color: var(--dark);
+      color: var(--primary);
     }
     .sidebar button:hover, .sidebar a:hover,
     .sidebar button.active, .sidebar a.active {
-      background-color: rgba(255,255,255,0.7);
+      background-color: rgba(74, 144, 226, 0.2);
       transform: translateX(5px);
+      color: var(--primary-dark);
     }
     .sidebar .logout-btn {
       margin-top: 20px;
-      color: #dc3545;
-      background: rgba(220, 53, 69, 0.1);
-      border: 1px solid rgba(220, 53, 69, 0.2);
+      color: #E74C3C;
+      background: rgba(231, 76, 60, 0.1);
+      border: 1px solid rgba(231, 76, 60, 0.2);
     }
     .sidebar .logout-btn:hover {
-      background: rgba(220, 53, 69, 0.15);
+      background: rgba(231, 76, 60, 0.15);
     }
     .user-info {
       display: flex;
       align-items: center;
       padding: 15px;
-      background: rgba(255,255,255,0.4);
+      background: rgba(74, 144, 226, 0.1);
       border-radius: var(--border-radius);
       margin-bottom: 25px;
       font-size: 0.9rem;
@@ -164,7 +188,7 @@
     .user-info i {
       font-size: 1.5rem;
       margin-right: 12px;
-      color: var(--dark);
+      color: var(--primary);
     }
     .user-details {
       flex-grow: 1;
@@ -172,6 +196,7 @@
     .user-details div:first-child {
       font-weight: 600;
       margin-bottom: 3px;
+      color: var(--primary-dark);
     }
     .user-details div:last-child {
       font-size: 0.85rem;
@@ -184,12 +209,11 @@
       gap: 25px;
     }
     .section {
-      background: rgba(255,255,255,0.7);
+      background: var(--light);
       border-radius: var(--border-radius);
       box-shadow: var(--shadow);
       padding: 30px;
       transition: var(--transition);
-      backdrop-filter: blur(5px);
       border: 1px solid rgba(0,0,0,0.05);
     }
     .section h3 {
@@ -205,7 +229,7 @@
     }
     .download-btn {
       background: var(--primary);
-      color: var(--dark);
+      color: white;
       padding: 8px 16px;
       border: none;
       border-radius: 6px;
@@ -217,10 +241,9 @@
       gap: 8px;
       font-family: 'Open Sans', sans-serif;
       box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-      border: 1px solid rgba(0,0,0,0.05);
     }
     .download-btn:hover {
-      background: var(--primary-light);
+      background: var(--primary-dark);
       transform: translateY(-2px);
       box-shadow: 0 4px 8px rgba(0,0,0,0.1);
     }
@@ -266,35 +289,34 @@
       font-size: 0.95rem;
       border-radius: var(--border-radius);
       overflow: hidden;
-      background: rgba(255,255,255,0.8);
+      background: var(--light);
     }
     table th {
-      background: rgba(177, 197, 164, 0.5);
+      background: rgba(74, 144, 226, 0.1);
       color: var(--dark);
       text-align: left;
-      padding: 15px; /* Increased padding */
+      padding: 15px;
       font-weight: 600;
       position: relative;
-      border-right: 1px solid rgba(0,0,0,0.1); /* Column separator */
-      border-bottom: 2px solid rgba(0,0,0,0.1); /* Stronger bottom border */
+      border-right: 1px solid rgba(0,0,0,0.1);
+      border-bottom: 2px solid rgba(0,0,0,0.1);
     }
-    /* Remove border from last column */
     table th:last-child {
       border-right: none;
     }
     table td {
       padding: 12px 15px;
       border-bottom: 1px solid rgba(0,0,0,0.05);
-      border-right: 1px solid rgba(0,0,0,0.05); /* Column separator */
+      border-right: 1px solid rgba(0,0,0,0.05);
     }
     table td:last-child {
       border-right: none;
     }
     table tr:nth-child(even) {
-      background-color: rgba(177, 197, 164, 0.05);
+      background-color: rgba(74, 144, 226, 0.05);
     }
     table tr:hover {
-      background-color: rgba(177, 197, 164, 0.1);
+      background-color: rgba(74, 144, 226, 0.1);
     }
     table tr:last-child td {
       border-bottom: none;
@@ -302,50 +324,82 @@
     #loginSection {
       max-width: 500px;
       margin: 100px auto;
-      background: rgba(255,255,255,0.8);
+      background: var(--light);
       padding: 40px;
       border-radius: var(--border-radius);
       box-shadow: var(--shadow);
       text-align: center;
-      backdrop-filter: blur(5px);
       border: 1px solid rgba(0,0,0,0.05);
+      position: relative;
+      overflow: hidden;
+      animation: fadeIn 0.8s ease-out;
+    }
+    #loginSection:before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: var(--primary);
     }
     #loginSection h2 {
       margin-bottom: 25px;
       color: var(--dark);
       font-size: 1.8rem;
       font-weight: 600;
+      position: relative;
+      padding-bottom: 15px;
+    }
+    #loginSection h2:after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 80px;
+      height: 3px;
+      background: var(--primary);
+      border-radius: 3px;
     }
     .input-group {
       margin-bottom: 20px;
       text-align: left;
+      position: relative;
     }
     .input-group label {
       display: block;
       margin-bottom: 8px;
       font-weight: 500;
       color: var(--dark);
+      padding-left: 5px;
     }
     #loginSection input {
       width: 100%;
-      padding: 14px;
+      padding: 14px 14px 14px 40px;
       border: 1px solid rgba(0,0,0,0.1);
       border-radius: 8px;
       font-size: 1rem;
       transition: var(--transition);
       font-family: 'Open Sans', sans-serif;
-      background: rgba(255,255,255,0.7);
+      background: var(--light-gray);
     }
     #loginSection input:focus {
       outline: none;
       border-color: var(--primary);
-      box-shadow: 0 0 0 3px rgba(177, 197, 164, 0.3);
+      box-shadow: 0 0 0 3px rgba(74, 144, 226, 0.3);
+    }
+    .input-icon {
+      position: absolute;
+      left: 15px;
+      top: 38px;
+      color: var(--primary);
     }
     .btn {
       display: inline-block;
       padding: 12px 25px;
       background: var(--primary);
-      color: var(--dark);
+      color: white;
       border: none;
       border-radius: 8px;
       cursor: pointer;
@@ -357,48 +411,98 @@
       margin-bottom: 12px;
       font-family: 'Open Sans', sans-serif;
       box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-      border: 1px solid rgba(0,0,0,0.05);
+      position: relative;
+      overflow: hidden;
     }
     .btn:hover {
-      background: var(--primary-light);
+      background: var(--primary-dark);
       transform: translateY(-2px);
       box-shadow: 0 6px 12px rgba(0,0,0,0.15);
     }
+    .btn:after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(255,255,255,0.2);
+      transform: translateX(-100%) skewX(-15deg);
+      transition: transform 0.3s ease;
+    }
+    .btn:hover:after {
+      transform: translateX(100%) skewX(-15deg);
+    }
     .btn-secondary {
       background: transparent;
-      color: var(--dark);
+      color: var(--primary);
       border: 1px solid var(--primary);
     }
     .btn-secondary:hover {
-      background: rgba(177, 197, 164, 0.2);
+      background: rgba(74, 144, 226, 0.1);
     }
     #loginError {
-      color: #dc3545;
+      color: #E74C3C;
       margin-top: 15px;
       font-size: 0.9rem;
+      min-height: 20px;
     }
-    /* CHATBOT LINKED TO EXTERNAL URL */
+    #verificationMessage {
+      margin-top: 20px;
+      padding: 15px;
+      background-color: rgba(80, 227, 194, 0.15);
+      border-radius: 8px;
+      text-align: center;
+      border-left: 4px solid var(--secondary);
+    }
+    #verificationMessage p {
+      margin-bottom: 10px;
+      color: var(--dark);
+    }
+    #verificationMessage .resend-link {
+      color: var(--primary);
+      cursor: pointer;
+      font-weight: 600;
+      text-decoration: underline;
+    }
+    #verificationMessage .resend-link:hover {
+      color: var(--primary-dark);
+    }
+    .login-logo {
+      height: 80px;
+      margin: 0 auto 20px;
+      display: block;
+      filter: drop-shadow(0 2px 4px rgba(0,0,0,0.1));
+      border: 3px solid white;
+      border-radius: 10px;
+      background: white;
+      padding: 5px;
+    }
     #chatbot {
       position: fixed;
       bottom: 25px;
       right: 25px;
-      width: 70px; /* Slightly larger */
-      height: 70px; /* Slightly larger */
+      width: 70px;
+      height: 70px;
       border-radius: 50%;
       background: url('https://lifelightfoundation.wordpress.com/wp-content/uploads/2025/07/chatgpt-image-jul-26-2025-10_55_03-am.png') no-repeat center center;
-      background-size: 70%; /* Better fit */
+      background-size: 70%;
       background-color: var(--primary);
-      border: 3px solid white; /* Thicker border */
+      border: 3px solid white;
       cursor: pointer;
-      box-shadow: 0 6px 20px rgba(0,0,0,0.25); /* More prominent shadow */
+      box-shadow: 0 6px 20px rgba(0,0,0,0.25);
       transition: var(--transition);
       z-index: 999;
       animation: pulse 2s infinite;
     }
     @keyframes pulse {
-      0% { box-shadow: 0 0 0 0 rgba(177, 197, 164, 0.7); }
-      70% { box-shadow: 0 0 0 12px rgba(177, 197, 164, 0); }
-      100% { box-shadow: 0 0 0 0 rgba(177, 197, 164, 0); }
+      0% { box-shadow: 0 0 0 0 rgba(74, 144, 226, 0.7); }
+      70% { box-shadow: 0 0 0 12px rgba(74, 144, 226, 0); }
+      100% { box-shadow: 0 0 0 0 rgba(74, 144, 226, 0); }
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
     }
     #chatbot:hover {
       transform: scale(1.1);
@@ -438,7 +542,9 @@
       .sidebar.active {
         display: block;
       }
-      /* CHATBOT LINKED TO EXTERNAL URL */
+      .header-clock {
+        display: none;
+      }
       #chatbot {
         width: 60px;
         height: 60px;
@@ -465,12 +571,17 @@
         width: 100%;
         justify-content: center;
       }
+      #loginSection {
+        margin: 30px auto;
+      }
+      .login-logo {
+        height: 70px;
+      }
     }
-    /* Loading spinner */
     .spinner {
       width: 50px;
       height: 50px;
-      border: 5px solid rgba(177, 197, 164, 0.2);
+      border: 5px solid rgba(74, 144, 226, 0.2);
       border-top: 5px solid var(--primary);
       border-radius: 50%;
       animation: spin 1s linear infinite;
@@ -480,7 +591,6 @@
       0% { transform: rotate(0deg); }
       100% { transform: rotate(360deg); }
     }
-    /* Empty state styling */
     .empty-state {
       text-align: center;
       padding: 40px 20px;
@@ -495,6 +605,9 @@
       max-width: 400px;
       margin: 0 auto;
     }
+    .optimized-animation {
+      will-change: transform;
+    }
   </style>
 </head>
 <body>
@@ -503,25 +616,37 @@
     <button class="mobile-menu-btn" id="mobileMenuBtn">
       <i class="fas fa-bars"></i>
     </button>
-    <img src="https://lifelightfoundation.wordpress.com/wp-content/uploads/2025/05/chatgpt-image-jun-7-2025-03_30_54-pm.png" alt="Dalswin Institute Logo">
+    <img src="https://lifelightfoundation.wordpress.com/wp-content/uploads/2025/05/chatgpt-image-jun-7-2025-03_30_54-pm.png" alt="Dalswin Institute Logo" width="60" height="60">
     <h1>Dalswin Life and Business Institute</h1>
+    <div class="header-clock">
+      <div class="header-date" id="headerDate">Monday, January 1, 2025</div>
+      <div class="header-time" id="headerTime">00:00:00</div>
+    </div>
   </div>
 </div>
 <div id="loginSection">
+  <img src="https://lifelightfoundation.wordpress.com/wp-content/uploads/2025/05/chatgpt-image-jun-7-2025-03_30_54-pm.png" alt="Dalswin Institute Logo" class="login-logo">
   <h2>Student Login</h2>
   <div class="input-group">
     <label for="email">Email Address</label>
+    <i class="fas fa-envelope input-icon"></i>
     <input type="email" id="email" placeholder="Enter your email">
   </div>
   <div class="input-group">
     <label for="password">Password</label>
+    <i class="fas fa-lock input-icon"></i>
     <input type="password" id="password" placeholder="Enter your password">
   </div>
   <button class="btn" onclick="login()">Login</button>
   <button class="btn btn-secondary" onclick="resetPassword()">Forgot Password?</button>
   <p id="loginError"></p>
+  <div id="verificationMessage" style="display: none;">
+    <p>A verification email has been sent to your address.</p>
+    <p>Please check your inbox and click the verification link to proceed.</p>
+    <p>Didn't receive the email? <span class="resend-link" onclick="resendVerification()">Resend verification</span></p>
+  </div>
 </div>
-<div class="container">
+<div class="container" id="appContainer" style="display: none;">
   <div class="sidebar" id="sidebar">
     <div class="user-info">
       <i class="fas fa-user-circle"></i>
@@ -553,11 +678,9 @@
       <i class="fas fa-bullhorn"></i> Announcements
     </button>
     <h2>Resources</h2>
-    <!-- ONLINE CAMPUS LINKED TO EXTERNAL URL -->
     <a href="https://canvas.instructure.com/login" target="_blank" id="campusLink">
       <i class="fas fa-laptop"></i> My Online Campus
     </a>
-    <!-- USEFUL LINKS LINKED TO EXTERNAL URL -->
     <a href="https://lifelight.foundation/useful-links/" target="_blank" id="usefulLinks">
       <i class="fas fa-link"></i> Useful Links
     </a>
@@ -688,11 +811,47 @@
     </div>
   </div>
 </div>
-<!-- CHATBOT LINKED TO EXTERNAL URL -->
 <a href="https://chartbot.lifelight.foundation/" target="_blank" id="chatbotLink" style="text-decoration: none;">
   <div id="chatbot" title="Chat Assistant"></div>
 </a>
+
 <script>
+  // Update clock function
+  function updateClock() {
+    const now = new Date();
+    const days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+    const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+    
+    const day = days[now.getDay()];
+    const month = months[now.getMonth()];
+    const date = now.getDate();
+    const year = now.getFullYear();
+    
+    // Format time
+    let hours = now.getHours();
+    let minutes = now.getMinutes();
+    let seconds = now.getSeconds();
+    const ampm = hours >= 12 ? 'PM' : 'AM';
+    
+    hours = hours % 12;
+    hours = hours ? hours : 12; // Convert 0 to 12
+    minutes = minutes < 10 ? '0' + minutes : minutes;
+    seconds = seconds < 10 ? '0' + seconds : seconds;
+    
+    const dateString = `${day}, ${month} ${date}, ${year}`;
+    const timeString = `${hours}:${minutes}:${seconds} ${ampm}`;
+    
+    document.getElementById('headerDate').textContent = dateString;
+    document.getElementById('headerTime').textContent = timeString;
+  }
+  
+  // Initialize and update clock every second
+  updateClock();
+  setInterval(updateClock, 1000);
+  
+  // Performance optimization flags
+  let isGeneratingPDF = false;
+  
   // Firebase configuration
   const firebaseConfig = {
     apiKey: "AIzaSyDM1LGJdUBN8zDLCzTjjxQtkzkeUHtuCSU",
@@ -702,37 +861,114 @@
     messagingSenderId: "177312727757",
     appId: "1:177312727757:web:5d2d926a71eb12d503df84"
   };
-  // Initialize Firebase
-  firebase.initializeApp(firebaseConfig);
-  // Mobile menu toggle
-  document.getElementById('mobileMenuBtn').addEventListener('click', function() {
-    document.getElementById('sidebar').classList.toggle('active');
-  });
-  // Login function
+  
+  // Key for tracking verified devices
+  const VERIFICATION_KEY = "dalswin_verified_devices";
+  
+  // Initialize Firebase when needed
+  function initializeFirebase() {
+    if (typeof firebase !== 'undefined' && firebase.apps.length === 0) {
+      firebase.initializeApp(firebaseConfig);
+    }
+    setupEventListeners();
+    checkAuthState();
+  }
+  
+  // Check if Firebase is ready
+  function checkFirebaseReady() {
+    if (typeof firebase !== 'undefined') {
+      initializeFirebase();
+    } else {
+      setTimeout(checkFirebaseReady, 100);
+    }
+  }
+  
+  // Setup event listeners
+  function setupEventListeners() {
+    document.getElementById('mobileMenuBtn').addEventListener('click', function() {
+      document.getElementById('sidebar').classList.toggle('active');
+    });
+    
+    // Optimized hover effects
+    const hoverElements = document.querySelectorAll('.sidebar button, .sidebar a, .download-btn');
+    hoverElements.forEach(el => {
+      el.classList.add('optimized-animation');
+    });
+  }
+  
+  // Handle authentication state
+  function checkAuthState() {
+    firebase.auth().onAuthStateChanged(user => {
+      const loginSection = document.getElementById('loginSection');
+      const appContainer = document.getElementById('appContainer');
+      const loginError = document.getElementById('loginError');
+      const verificationMessage = document.getElementById('verificationMessage');
+      
+      if (user) {
+        const verifiedDevices = JSON.parse(localStorage.getItem(VERIFICATION_KEY)) || {};
+        const isDeviceVerified = verifiedDevices[user.uid] === true;
+        
+        if (user.emailVerified || isDeviceVerified) {
+          loginSection.style.display = "none";
+          appContainer.style.display = "flex";
+          verificationMessage.style.display = "none";
+          document.getElementById("userEmail").textContent = user.email;
+          fetchData(user.email);
+          
+          if (!isDeviceVerified) {
+            verifiedDevices[user.uid] = true;
+            localStorage.setItem(VERIFICATION_KEY, JSON.stringify(verifiedDevices));
+          }
+        } else {
+          loginSection.style.display = "block";
+          appContainer.style.display = "none";
+          verificationMessage.style.display = "block";
+          loginError.textContent = "Please verify your email to access your account.";
+          firebase.auth().signOut();
+        }
+      } else {
+        loginSection.style.display = "block";
+        appContainer.style.display = "none";
+        verificationMessage.style.display = "none";
+      }
+    });
+  }
+  
+  // Login function with email verification
   function login() {
     const email = document.getElementById("email").value.trim();
     const password = document.getElementById("password").value;
     const loginError = document.getElementById("loginError");
-    // Basic validation
+    const verificationMessage = document.getElementById("verificationMessage");
+    const loginBtn = document.querySelector('#loginSection .btn');
+    
     if (!email || !password) {
       loginError.textContent = "Please enter both email and password.";
       return;
     }
+    
     loginError.textContent = "";
-    // Show loading state
-    const loginBtn = document.querySelector('#loginSection .btn');
+    verificationMessage.style.display = "none";
+    
     const originalText = loginBtn.innerHTML;
     loginBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Logging in...';
     loginBtn.disabled = true;
+    
     firebase.auth().signInWithEmailAndPassword(email, password)
       .then(userCred => {
-        // Hide login, show dashboard
-        document.getElementById("loginSection").style.display = "none";
-        document.getElementById("sidebar").classList.add('active');
-        document.getElementById("mainContent").style.display = "flex";
-        document.getElementById("userEmail").textContent = userCred.user.email;
-        // Fetch user data
-        fetchData(userCred.user.email);
+        const user = userCred.user;
+        const verifiedDevices = JSON.parse(localStorage.getItem(VERIFICATION_KEY)) || {};
+        const isDeviceVerified = verifiedDevices[user.uid] === true;
+        
+        if (!user.emailVerified && !isDeviceVerified) {
+          return user.sendEmailVerification()
+            .then(() => {
+              firebase.auth().signOut();
+              verificationMessage.style.display = "block";
+              loginError.textContent = "";
+              throw new Error("Verification email sent. Please check your inbox.");
+            });
+        }
       })
       .catch(error => {
         loginError.textContent = error.message;
@@ -740,15 +976,48 @@
         loginBtn.disabled = false;
       });
   }
+  
+  // Resend verification email
+  function resendVerification() {
+    const email = document.getElementById("email").value.trim();
+    const loginError = document.getElementById("loginError");
+    const resendLink = document.querySelector('.resend-link');
+    
+    if (!email) {
+      loginError.textContent = "Please enter your email address first.";
+      return;
+    }
+    
+    loginError.textContent = "";
+    resendLink.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
+    
+    firebase.auth().signInWithEmailAndPassword(email, document.getElementById("password").value)
+      .then(userCred => {
+        return userCred.user.sendEmailVerification();
+      })
+      .then(() => {
+        resendLink.innerHTML = 'Resend verification';
+        loginError.textContent = "Verification email resent!";
+        loginError.style.color = "var(--primary)";
+      })
+      .catch(err => {
+        resendLink.innerHTML = 'Resend verification';
+        loginError.textContent = err.message;
+      });
+  }
+  
   // Reset password function
   function resetPassword() {
     const email = document.getElementById("email").value.trim();
     const loginError = document.getElementById("loginError");
+    
     if (!email) {
       loginError.textContent = "Please enter your email address to reset your password.";
       return;
     }
+    
     loginError.textContent = "";
+    
     firebase.auth().sendPasswordResetEmail(email)
       .then(() => {
         loginError.textContent = "Password reset link sent to your email!";
@@ -758,42 +1027,47 @@
         loginError.textContent = err.message;
       });
   }
+  
   // Logout function
   function logout() {
     firebase.auth().signOut().then(() => {
       location.reload();
     });
   }
+  
   // Show section function
   function showSection(id) {
-    // Hide all sections
     document.querySelectorAll('.section').forEach(section => {
       section.style.display = "none";
     });
-    // Show selected section
     document.getElementById(id).style.display = "block";
-    // Update active button
+    
     document.querySelectorAll('.sidebar button').forEach(button => {
       button.classList.remove('active');
     });
-    // Add active class to clicked button
+    
     event.currentTarget.classList.add('active');
-    // Close mobile menu after selection
+    
     if (window.innerWidth <= 768) {
       document.getElementById('sidebar').classList.remove('active');
     }
   }
+  
   // Fetch data function
   function fetchData(email) {
-    // Show loading state
-    document.querySelectorAll('.section-content').forEach(el => {
+    const sections = document.querySelectorAll('.section-content');
+    sections.forEach(el => {
       el.innerHTML = '<div class="spinner"></div>';
     });
+    
     const url = "https://script.google.com/macros/s/AKfycbzg1RghRrgkgh6Rixe2uX8aL6MwDu9jiuGHtHAvCGytpzdpl19hLvX27kC5NIxRl0ci/exec?email=" + email;
-    fetch(url)
+    
+    // Add cache buster to avoid cached responses
+    const cacheBuster = '&t=' + new Date().getTime();
+    
+    fetch(url + cacheBuster)
       .then(res => res.json())
       .then(data => {
-        // Display data in sections
         displaySection("homeSection", data.Home || []);
         displaySection("coursesSection", data.MyCourses || []);
         displaySection("progressSection", data.AcademicProgress || []);
@@ -804,7 +1078,7 @@
       })
       .catch(error => {
         console.error("Error fetching data:", error);
-        document.querySelectorAll('.section-content').forEach(el => {
+        sections.forEach(el => {
           el.innerHTML = `
             <div class="empty-state">
               <i class="fas fa-exclamation-triangle"></i>
@@ -814,10 +1088,12 @@
         });
       });
   }
+  
   // Display section data
   function displaySection(id, rows) {
     const section = document.getElementById(id);
     const contentDiv = section.querySelector('.section-content');
+    
     if (!rows || rows.length === 0) {
       contentDiv.innerHTML = `
         <div class="empty-state">
@@ -827,6 +1103,7 @@
       `;
       return;
     }
+    
     const keys = Object.keys(rows[0]);
     let tableHTML = `
       <div class="table-container">
@@ -836,9 +1113,11 @@
           </thead>
           <tbody>
     `;
+    
     rows.forEach(row => {
       tableHTML += "<tr>" + keys.map(k => `<td>${row[k]}</td>`).join("") + "</tr>";
     });
+    
     tableHTML += `
           </tbody>
         </table>
@@ -846,38 +1125,109 @@
     `;
     contentDiv.innerHTML = tableHTML;
   }
-  // Updated PDF download function
+  
+  // Optimized PDF download function
   async function downloadSection(sectionId) {
+    if (isGeneratingPDF) return;
+    isGeneratingPDF = true;
+    
     const section = document.getElementById(sectionId);
     const downloadBtn = section.querySelector('.download-btn');
     const originalText = downloadBtn.innerHTML;
-    // Disable button and show loading
+    
     downloadBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Preparing...';
     downloadBtn.disabled = true;
+    
     if (!section) {
       alert("Section not found.");
       downloadBtn.innerHTML = originalText;
       downloadBtn.disabled = false;
+      isGeneratingPDF = false;
       return;
     }
+    
     try {
-      const canvas = await html2canvas(section, { scale: 2 });
+      // Check if libraries are loaded
+      if (typeof html2canvas === 'undefined' || typeof jspdf === 'undefined') {
+        await loadPDFLibraries();
+      }
+      
+      // Create a smaller clone for PDF generation
+      const clone = section.cloneNode(true);
+      clone.style.width = section.offsetWidth + 'px';
+      clone.style.position = 'absolute';
+      clone.style.top = '-9999px';
+      document.body.appendChild(clone);
+      
+      // Generate canvas with lower scale for performance
+      const canvas = await html2canvas(clone, { 
+        scale: 1, // Reduced from 2 to 1 for performance
+        useCORS: true,
+        logging: false
+      });
+      
+      document.body.removeChild(clone);
+      
       const imgData = canvas.toDataURL("image/png");
       const pdf = new jspdf.jsPDF('p', 'mm', 'a4');
       const imgProps = pdf.getImageProperties(imgData);
       const pdfWidth = pdf.internal.pageSize.getWidth();
       const pdfHeight = (imgProps.height * pdfWidth) / imgProps.width;
+      
       pdf.addImage(imgData, 'PNG', 0, 0, pdfWidth, pdfHeight);
       pdf.save(sectionId + ".pdf");
     } catch (err) {
       console.error("PDF generation failed:", err);
       alert("Failed to generate PDF. Please try again.");
     } finally {
-      // Reset button state
       downloadBtn.innerHTML = originalText;
       downloadBtn.disabled = false;
+      isGeneratingPDF = false;
     }
   }
+  
+  // Load PDF libraries if not already loaded
+  function loadPDFLibraries() {
+    return new Promise((resolve, reject) => {
+      const checkLibraries = () => {
+        if (typeof html2canvas !== 'undefined' && typeof jspdf !== 'undefined') {
+          resolve();
+        } else {
+          setTimeout(checkLibraries, 100);
+        }
+      };
+      checkLibraries();
+    });
+  }
+  
+  // Start initialization
+  window.addEventListener('DOMContentLoaded', function() {
+    // Start checking for Firebase
+    checkFirebaseReady();
+    
+    // Preload PDF libraries on page load
+    const preloadScripts = [
+      'https://cdn.jsdelivr.net/npm/jspdf@2.5.1/dist/jspdf.umd.min.js',
+      'https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js'
+    ];
+    
+    preloadScripts.forEach(src => {
+      const link = document.createElement('link');
+      link.rel = 'preload';
+      link.href = src;
+      link.as = 'script';
+      document.head.appendChild(link);
+    });
+    
+    // Optimize images
+    const images = document.querySelectorAll('img');
+    images.forEach(img => {
+      if (!img.getAttribute('width') || !img.getAttribute('height')) {
+        img.setAttribute('width', img.offsetWidth);
+        img.setAttribute('height', img.offsetHeight);
+      }
+    });
+  });
 </script>
 </body>
 </html>
