@@ -5,7 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="description" content="Dalswin Life and Business Institute - Student Dashboard">
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self' 'unsafe-inline' 'unsafe-eval' https:; script-src 'self' 'unsafe-inline' 'unsafe-eval' https:; style-src 'self' 'unsafe-inline' https:; font-src 'self' https: data:; img-src 'self' data: https:; connect-src 'self' https:; frame-src https:;">
+  <meta name="theme-color" content="#2563EB">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://cdn.jsdelivr.net https://cdnjs.cloudflare.com https://www.gstatic.com; style-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com data:; img-src 'self' data: https: blob:; connect-src 'self' https://www.googleapis.com https://identitytoolkit.googleapis.com https://firestore.googleapis.com wss: https:; frame-src https://www.youtube.com https://player.vimeo.com; worker-src 'self' blob:;">
   <title>Dalswin Life and Business Institute | Student Portal</title>
   
   <!-- Preconnect for performance -->
@@ -289,6 +290,147 @@
       box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.2);
     }
     
+    /* ===== NOTIFICATION PANEL ===== */
+    .notification-wrapper {
+      position: relative;
+    }
+    
+    .notification-panel {
+      position: absolute;
+      top: calc(100% + 8px);
+      right: 0;
+      width: 360px;
+      max-height: 480px;
+      background: var(--white);
+      border-radius: var(--border-radius);
+      box-shadow: var(--shadow-xl);
+      border: 1px solid var(--gray-200);
+      display: none;
+      z-index: 1000;
+      overflow: hidden;
+    }
+    
+    .notification-panel.show {
+      display: block;
+      animation: slideDown 0.2s ease;
+    }
+    
+    @keyframes slideDown {
+      from { opacity: 0; transform: translateY(-10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    
+    .notification-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 16px 20px;
+      border-bottom: 1px solid var(--gray-100);
+    }
+    
+    .notification-header h4 {
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--gray-900);
+    }
+    
+    .mark-read-btn {
+      background: none;
+      border: none;
+      color: var(--primary);
+      font-size: 0.8125rem;
+      font-weight: 500;
+      cursor: pointer;
+    }
+    
+    .mark-read-btn:hover {
+      text-decoration: underline;
+    }
+    
+    .notification-list {
+      max-height: 400px;
+      overflow-y: auto;
+    }
+    
+    .notification-empty {
+      padding: 40px 20px;
+      text-align: center;
+      color: var(--gray-500);
+    }
+    
+    .notification-empty i {
+      font-size: 2rem;
+      margin-bottom: 12px;
+      display: block;
+    }
+    
+    .notification-item {
+      display: flex;
+      gap: 12px;
+      padding: 16px 20px;
+      border-bottom: 1px solid var(--gray-100);
+      cursor: pointer;
+      transition: var(--transition-base);
+    }
+    
+    .notification-item:hover {
+      background: var(--gray-50);
+    }
+    
+    .notification-item.unread {
+      background: var(--primary-50);
+    }
+    
+    .notification-item.unread:hover {
+      background: #DBEAFE;
+    }
+    
+    .notification-icon {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    
+    .notification-icon.info { background: #DBEAFE; color: var(--primary); }
+    .notification-icon.success { background: #D1FAE5; color: var(--success); }
+    .notification-icon.warning { background: #FEF3C7; color: var(--accent); }
+    .notification-icon.error { background: #FEE2E2; color: var(--danger); }
+    
+    .notification-content {
+      flex: 1;
+      min-width: 0;
+    }
+    
+    .notification-title {
+      font-size: 0.875rem;
+      font-weight: 600;
+      color: var(--gray-900);
+      margin-bottom: 4px;
+    }
+    
+    .notification-message {
+      font-size: 0.8125rem;
+      color: var(--gray-600);
+      line-height: 1.4;
+    }
+    
+    .notification-time {
+      font-size: 0.75rem;
+      color: var(--gray-400);
+      margin-top: 6px;
+    }
+    
+    @media (max-width: 480px) {
+      .notification-panel {
+        width: calc(100vw - 32px);
+        right: -60px;
+      }
+    }
+    
     .mobile-menu-btn {
       display: none;
       background: none;
@@ -297,6 +439,64 @@
       font-size: 1.5rem;
       cursor: pointer;
       padding: 8px;
+      margin-right: 8px;
+    }
+    
+    /* ===== RESPONSIVE HEADER ===== */
+    @media (max-width: 1024px) {
+      .header-center {
+        display: none;
+      }
+    }
+    
+    @media (max-width: 768px) {
+      .header {
+        padding: 0 16px;
+      }
+      
+      .header-logo {
+        height: 36px;
+        width: 36px;
+      }
+      
+      .header-title {
+        font-size: 1rem;
+      }
+      
+      .header-subtitle {
+        display: none;
+      }
+      
+      .mobile-menu-btn {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      
+      .header-clock {
+        display: none;
+      }
+      
+      .header-right {
+        gap: 8px;
+      }
+      
+      .header-btn {
+        width: 36px;
+        height: 36px;
+      }
+      
+      .user-avatar {
+        width: 36px;
+        height: 36px;
+        font-size: 0.8125rem;
+      }
+    }
+    
+    @media (max-width: 480px) {
+      .header-brand .header-title {
+        display: none;
+      }
     }
     
     /* ===== LOGIN PAGE ===== */
@@ -559,6 +759,24 @@
       border-radius: 3px;
     }
     
+    .sidebar-overlay {
+      display: none;
+      position: fixed;
+      top: var(--header-height);
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(0, 0, 0, 0.5);
+      z-index: 99;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+    
+    .sidebar-overlay.show {
+      display: block;
+      opacity: 1;
+    }
+    
     .user-card {
       background: linear-gradient(135deg, var(--primary-50) 0%, #DBEAFE 100%);
       border-radius: var(--border-radius);
@@ -708,6 +926,50 @@
       text-align: center;
     }
     
+    /* ===== RESPONSIVE SIDEBAR ===== */
+    @media (max-width: 1024px) {
+      .sidebar {
+        width: 260px;
+        transform: translateX(-100%);
+      }
+      
+      .sidebar.open {
+        transform: translateX(0);
+        box-shadow: var(--shadow-xl);
+      }
+      
+      .content-wrapper {
+        margin-left: 0;
+      }
+    }
+    
+    @media (max-width: 768px) {
+      .sidebar {
+        width: 280px;
+      }
+      
+      .user-card {
+        padding: 14px;
+      }
+      
+      .user-avatar-large {
+        width: 42px;
+        height: 42px;
+        font-size: 1rem;
+      }
+      
+      .user-details p {
+        max-width: 140px;
+      }
+    }
+    
+    @media (max-width: 480px) {
+      .sidebar {
+        width: 100%;
+        max-width: 300px;
+      }
+    }
+    
     /* ===== CONTENT AREA ===== */
     .content-wrapper {
       flex: 1;
@@ -721,6 +983,8 @@
       justify-content: space-between;
       align-items: center;
       margin-bottom: 28px;
+      flex-wrap: wrap;
+      gap: 16px;
     }
     
     .page-title {
@@ -749,6 +1013,31 @@
     .page-actions {
       display: flex;
       gap: 12px;
+      flex-wrap: wrap;
+    }
+    
+    /* ===== RESPONSIVE CONTENT ===== */
+    @media (max-width: 768px) {
+      .content-wrapper {
+        padding: 20px 16px;
+      }
+      
+      .page-header {
+        margin-bottom: 20px;
+      }
+      
+      .page-title {
+        font-size: 1.25rem;
+      }
+      
+      .page-breadcrumb {
+        display: none;
+      }
+      
+      .page-actions {
+        width: 100%;
+        justify-content: flex-start;
+      }
     }
     
     /* ===== DASHBOARD CARDS ===== */
@@ -841,6 +1130,60 @@
     .stat-change.positive { color: var(--success); }
     .stat-change.negative { color: var(--danger); }
     
+    /* ===== RESPONSIVE STATS GRID ===== */
+    @media (max-width: 640px) {
+      .stats-grid {
+        grid-template-columns: 1fr;
+        gap: 14px;
+        margin-bottom: 20px;
+      }
+      
+      .stat-card {
+        padding: 18px;
+        display: flex;
+        align-items: center;
+        gap: 16px;
+      }
+      
+      .stat-card::before {
+        width: 100%;
+        height: 4px;
+        top: 0;
+        left: 0;
+      }
+      
+      .stat-icon {
+        width: 44px;
+        height: 44px;
+        font-size: 1.125rem;
+        margin-bottom: 0;
+      }
+      
+      .stat-content {
+        flex: 1;
+      }
+      
+      .stat-label {
+        font-size: 0.75rem;
+      }
+      
+      .stat-value {
+        font-size: 1.5rem;
+      }
+      
+      .stat-change {
+        font-size: 0.6875rem;
+        margin-top: 4px;
+      }
+    }
+    
+    @media (min-width: 641px) and (max-width: 768px) {
+      .stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 14px;
+      }
+    }
+    
     /* ===== SECTIONS ===== */
     .content-card {
       background: var(--white);
@@ -868,6 +1211,8 @@
       align-items: center;
       padding: 20px 24px;
       border-bottom: 1px solid var(--gray-100);
+      flex-wrap: wrap;
+      gap: 12px;
     }
     
     .card-title {
@@ -881,6 +1226,12 @@
     
     .card-title i {
       color: var(--primary);
+    }
+    
+    .card-actions {
+      display: flex;
+      align-items: center;
+      gap: 12px;
     }
     
     .card-body {
@@ -1194,6 +1545,78 @@
       font-size: 0.875rem;
     }
     
+    /* Skeleton Loading Animation */
+    @keyframes shimmer {
+      0% { background-position: -200% 0; }
+      100% { background-position: 200% 0; }
+    }
+    
+    .skeleton {
+      background: linear-gradient(90deg, var(--gray-200) 25%, var(--gray-100) 50%, var(--gray-200) 75%);
+      background-size: 200% 100%;
+      animation: shimmer 1.5s infinite;
+      border-radius: 4px;
+    }
+    
+    .skeleton-card {
+      background: var(--white);
+      border-radius: var(--border-radius);
+      padding: 20px;
+      margin-bottom: 16px;
+    }
+    
+    .skeleton-line {
+      height: 14px;
+      margin-bottom: 12px;
+    }
+    
+    .skeleton-line.short { width: 40%; }
+    
+    .skeleton-line.medium { width: 70%; }
+    
+    .skeleton-line.long { width: 90%; }
+    
+    .skeleton-avatar {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+    }
+    
+    .skeleton-row {
+      display: flex;
+      gap: 16px;
+      align-items: center;
+      padding: 16px 0;
+      border-bottom: 1px solid var(--gray-100);
+    }
+    
+    .skeleton-row:last-child {
+      border-bottom: none;
+    }
+    
+    /* Empty State Styles */
+    .empty-state {
+      text-align: center;
+      padding: 60px 20px;
+    }
+    
+    .empty-state i {
+      font-size: 3rem;
+      color: var(--gray-300);
+      margin-bottom: 20px;
+    }
+    
+    .empty-state h4 {
+      font-size: 1.125rem;
+      color: var(--gray-700);
+      margin-bottom: 8px;
+    }
+    
+    .empty-state p {
+      color: var(--gray-500);
+      font-size: 0.875rem;
+    }
+    
     /* ===== RESPONSIVE DESIGN ===== */
     @media (max-width: 1200px) {
       .stats-grid {
@@ -1201,12 +1624,12 @@
       }
     }
     
-    @media (max-width: 992px) {
+    @media (max-width: 1024px) {
       .sidebar {
         transform: translateX(-100%);
       }
       
-      .sidebar.active {
+      .sidebar.open {
         transform: translateX(0);
       }
       
@@ -1216,10 +1639,6 @@
       
       .mobile-menu-btn {
         display: flex;
-      }
-      
-      .header-center {
-        display: none;
       }
     }
     
@@ -1274,12 +1693,326 @@
       }
     }
     
+    @media (max-width: 360px) {
+      .header-title { font-size: 0.875rem; }
+      .header-subtitle { display: none; }
+      .stat-card { padding: 16px; }
+      .stat-value { font-size: 1.5rem; }
+      .card-header { flex-direction: column; gap: 12px; align-items: flex-start; }
+      .page-actions { width: 100%; }
+      .btn-download { width: 100%; justify-content: center; }
+    }
+    
+    /* ===== CARD DISPLAY FOR DATA ===== */
+    .data-cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 20px;
+    }
+    
+    .data-card {
+      background: var(--white);
+      border-radius: var(--border-radius);
+      padding: 20px;
+      border: 1px solid var(--gray-200);
+      transition: var(--transition-base);
+    }
+    
+    .data-card:hover {
+      border-color: var(--primary);
+      box-shadow: var(--shadow-md);
+      transform: translateY(-2px);
+    }
+    
+    .data-card-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 12px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid var(--gray-100);
+    }
+    
+    .data-card-title {
+      font-size: 0.9375rem;
+      font-weight: 600;
+      color: var(--gray-900);
+    }
+    
+    .data-card-icon {
+      width: 36px;
+      height: 36px;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1rem;
+    }
+    
+    .data-card-icon.blue { background: #DBEAFE; color: var(--primary); }
+    .data-card-icon.green { background: #D1FAE5; color: var(--success); }
+    .data-card-icon.orange { background: #FEF3C7; color: var(--accent); }
+    .data-card-icon.purple { background: #EDE9FE; color: #8B5CF6; }
+    .data-card-icon.red { background: #FEE2E2; color: var(--danger); }
+    
+    .data-card-body {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    
+    .data-card-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    
+    .data-card-label {
+      font-size: 0.8125rem;
+      color: var(--gray-500);
+    }
+    
+    .data-card-value {
+      font-size: 0.875rem;
+      font-weight: 500;
+      color: var(--gray-800);
+    }
+    
+    /* Toggle View Buttons */
+    .view-toggle {
+      display: flex;
+      gap: 8px;
+    }
+    
+    .view-btn {
+      padding: 8px 12px;
+      border: 1px solid var(--gray-200);
+      background: var(--white);
+      border-radius: var(--border-radius-sm);
+      cursor: pointer;
+      transition: var(--transition-base);
+      color: var(--gray-600);
+    }
+    
+    .view-btn:hover, .view-btn.active {
+      background: var(--primary);
+      color: white;
+      border-color: var(--primary);
+    }
+    
+    /* ===== RESPONSIVE DATA CARDS ===== */
+    @media (max-width: 480px) {
+      .data-cards {
+        grid-template-columns: 1fr;
+        gap: 12px;
+      }
+      
+      .data-card {
+        padding: 14px;
+        border-radius: 10px;
+      }
+      
+      .data-card-header {
+        flex-direction: column;
+        gap: 10px;
+        align-items: flex-start;
+      }
+      
+      .data-card-icon {
+        position: absolute;
+        top: 14px;
+        right: 14px;
+        width: 36px;
+        height: 36px;
+        font-size: 0.875rem;
+      }
+      
+      .data-card {
+        position: relative;
+        padding-right: 50px;
+      }
+      
+      .data-card-title {
+        font-size: 0.9375rem;
+      }
+      
+      .data-card-body {
+        margin-top: 10px;
+      }
+      
+      .data-card-row {
+        flex-direction: column;
+        gap: 2px;
+        padding: 6px 0;
+      }
+    }
+    
+    @media (min-width: 481px) and (max-width: 640px) {
+      .data-cards {
+        grid-template-columns: 1fr;
+        gap: 14px;
+      }
+    }
+    
+    @media (min-width: 641px) and (max-width: 768px) {
+      .data-cards {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 14px;
+      }
+    }
+    
+    @media (min-width: 769px) and (max-width: 1024px) {
+      .data-cards {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+    
+    @media (min-width: 1025px) and (max-width: 1400px) {
+      .data-cards {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+    
+    @media (min-width: 1401px) {
+      .data-cards {
+        grid-template-columns: repeat(4, 1fr);
+      }
+    }
+    
+    /* Enhanced Table Responsive */
+    .table-responsive-wrapper {
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: thin;
+      scrollbar-color: var(--gray-300) transparent;
+    }
+    
+    .table-responsive-wrapper::-webkit-scrollbar {
+      height: 6px;
+    }
+    
+    .table-responsive-wrapper::-webkit-scrollbar-track {
+      background: var(--gray-100);
+      border-radius: 3px;
+    }
+    
+    .table-responsive-wrapper::-webkit-scrollbar-thumb {
+      background: var(--gray-300);
+      border-radius: 3px;
+    }
+    
+    .table-responsive-wrapper table {
+      min-width: 600px;
+      width: 100%;
+    }
+    
+    /* Mobile Table Card View Alternative */
+    @media (max-width: 640px) {
+      .table-responsive-wrapper {
+        display: none;
+      }
+      
+      .mobile-card-view {
+        display: block !important;
+      }
+    }
+    
+    @media (min-width: 641px) {
+      .mobile-card-view {
+        display: none !important;
+      }
+    }
+    
+    .mobile-card-item {
+      background: var(--gray-50);
+      border-radius: 8px;
+      padding: 14px;
+      margin-bottom: 12px;
+      border: 1px solid var(--gray-200);
+    }
+    
+    .mobile-card-item:last-child {
+      margin-bottom: 0;
+    }
+    
+    .mobile-card-item-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 10px;
+      padding-bottom: 10px;
+      border-bottom: 1px solid var(--gray-200);
+    }
+    
+    .mobile-card-item-title {
+      font-weight: 600;
+      color: var(--gray-900);
+      font-size: 0.9375rem;
+    }
+    
+    .mobile-card-item-body {
+      display: grid;
+      gap: 8px;
+    }
+    
+    .mobile-card-item-row {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.8125rem;
+    }
+    
+    .mobile-card-item-label {
+      color: var(--gray-500);
+    }
+    
+    .mobile-card-item-value {
+      color: var(--gray-800);
+      font-weight: 500;
+    }
+    
     /* ===== UTILITY CLASSES ===== */
     .hidden { display: none !important; }
     .text-center { text-align: center; }
     .text-right { text-align: right; }
     .mt-4 { margin-top: 16px; }
     .mb-4 { margin-bottom: 16px; }
+    
+    /* ===== ACCESSIBILITY ===== */
+    .sr-only {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+      border: 0;
+    }
+    
+    /* Focus styles for accessibility */
+    *:focus-visible {
+      outline: 2px solid var(--primary);
+      outline-offset: 2px;
+    }
+    
+    button:focus-visible,
+    input:focus-visible,
+    a:focus-visible {
+      outline: 2px solid var(--primary);
+      outline-offset: 2px;
+    }
+    
+    /* Reduced motion */
+    @media (prefers-reduced-motion: reduce) {
+      *,
+      *::before,
+      *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+      }
+    }
   </style>
 </head>
 <body>
@@ -1331,10 +2064,13 @@
 
   <!-- Main Application -->
   <div class="main-wrapper hidden" id="appWrapper">
+    <!-- Sidebar Overlay for Mobile -->
+    <div class="sidebar-overlay" id="sidebarOverlay" onclick="closeSidebar()"></div>
+    
     <!-- Header -->
     <header class="header">
       <div class="header-content">
-        <button class="mobile-menu-btn" id="mobileMenuBtn" onclick="toggleSidebar()">
+        <button class="mobile-menu-btn" id="mobileMenuBtn" onclick="toggleSidebar()" aria-label="Toggle menu">
           <i class="fas fa-bars"></i>
         </button>
         
@@ -1360,10 +2096,24 @@
           </div>
           
           <div class="header-actions">
-            <button class="header-btn" title="Notifications" onclick="showToast('info', 'Notifications', 'You have no new notifications')">
-              <i class="fas fa-bell"></i>
-              <span class="badge hidden" id="notificationBadge">0</span>
-            </button>
+            <div class="notification-wrapper">
+              <button class="header-btn" title="Notifications" onclick="toggleNotifications()">
+                <i class="fas fa-bell"></i>
+                <span class="badge hidden" id="notificationBadge">0</span>
+              </button>
+              <div class="notification-panel" id="notificationPanel">
+                <div class="notification-header">
+                  <h4>Notifications</h4>
+                  <button class="mark-read-btn" onclick="markAllNotificationsRead()">Mark all read</button>
+                </div>
+                <div class="notification-list" id="notificationList">
+                  <div class="notification-empty">
+                    <i class="fas fa-bell-slash"></i>
+                    <p>No notifications</p>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
           
           <div class="user-avatar" id="userAvatar" title="Profile" onclick="showProfileMenu()">
@@ -1422,7 +2172,7 @@
           <i class="fas fa-laptop-code"></i>
           <span>Online Campus</span>
         </a>
-        <a href="https://lifelight.foundation/useful-links/" target="_blank" rel="noopener noreferrer" class="sidebar-link">
+        <a href="https://lifelightfoundation.online/useful-links/" target="_blank" rel="noopener noreferrer" class="sidebar-link">
           <i class="fas fa-link"></i>
           <span>Useful Links</span>
         </a>
@@ -1766,25 +2516,111 @@
       
       // Generate CSRF token
       generateToken() {
-        return Math.random().toString(36).substring(2) + Date.now().toString(36);
+        // Use crypto-safe random if available
+        if (typeof crypto !== 'undefined' && crypto.getRandomValues) {
+          const array = new Uint8Array(32);
+          crypto.getRandomValues(array);
+          return Array.from(array, b => b.toString(16).padStart(2, '0')).join('');
+        }
+        return Math.random().toString(36).substring(2) + Date.now().toString(36) + Math.random().toString(36).substring(2);
       },
       
       // Validate email format
       isValidEmail(email) {
         const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-        return re.test(email);
+        return re.test(email) && email.length <= 254;
+      },
+      
+      // Validate password strength
+      validatePassword(password) {
+        return password && password.length >= 6 && password.length <= 128;
       },
       
       // Escape HTML entities
       escapeHtml(text) {
+        if (text === null || text === undefined) return '';
+        const str = String(text);
         const map = {
-          '&': '&',
-          '<': '<',
-          '>': '>',
-          '"': '"',
-          "'": '&#039;'
+          '&': '&amp;',
+          '<': '&lt;',
+          '>': '&gt;',
+          '"': '&quot;',
+          "'": '&#039;',
+          '/': '&#x2F;',
+          '`': '&#x60;',
+          '=': '&#x3D;'
         };
-        return text.replace(/[&<>"']/g, m => map[m]);
+        return str.replace(/[&<>"'\/`=]/g, m => map[m]);
+      },
+      
+      // Validate input length
+      validateLength(str, min = 0, max = 1000) {
+        if (typeof str !== 'string') return false;
+        return str.length >= min && str.length <= max;
+      },
+      
+      // Sanitize URL
+      sanitizeUrl(url) {
+        try {
+          const urlObj = new URL(url);
+          // Only allow http and https
+          if (urlObj.protocol !== 'http:' && urlObj.protocol !== 'https:') {
+            return null;
+          }
+          return urlObj.href;
+        } catch {
+          return null;
+        }
+      },
+      
+      // Clear sensitive data from memory
+      clearSensitiveData(obj) {
+        if (obj && typeof obj === 'object') {
+          Object.keys(obj).forEach(key => {
+            if (typeof obj[key] === 'string' && 
+                (key.toLowerCase().includes('password') || 
+                 key.toLowerCase().includes('token') || 
+                 key.toLowerCase().includes('secret'))) {
+              obj[key] = '';
+            }
+          });
+        }
+      }
+    };
+    
+    // ===== RATE LIMITING =====
+    const RateLimiter = {
+      attempts: {},
+      
+      // Check if action is allowed
+      isAllowed(key, maxAttempts = 5, windowMs = 60000) {
+        const now = Date.now();
+        if (!this.attempts[key]) {
+          this.attempts[key] = [];
+        }
+        
+        // Remove old attempts
+        this.attempts[key] = this.attempts[key].filter(time => now - time < windowMs);
+        
+        if (this.attempts[key].length >= maxAttempts) {
+          return false;
+        }
+        
+        this.attempts[key].push(now);
+        return true;
+      },
+      
+      // Get remaining attempts
+      getRemainingAttempts(key, maxAttempts = 5) {
+        const now = Date.now();
+        if (!this.attempts[key]) return maxAttempts;
+        const recentAttempts = this.attempts[key].filter(time => now - time < 60000);
+        return Math.max(0, maxAttempts - recentAttempts.length);
+      },
+      
+      // Clear attempts for a key
+      clear(key) {
+        delete this.attempts[key];
       }
     };
 
@@ -1929,12 +2765,22 @@
     function handleLogin(event) {
       event.preventDefault();
       
-      const email = SecurityUtils.sanitize(document.getElementById('email').value.trim());
-      const password = document.getElementById('password').value;
+      const emailInput = document.getElementById('email');
+      const passwordInput = document.getElementById('password');
+      
+      const email = SecurityUtils.sanitize(emailInput.value.trim());
+      const password = passwordInput.value;
       const loginError = document.getElementById('loginError');
       const loginBtn = document.getElementById('loginBtn');
       
-      // Validate
+      // Check rate limiting
+      if (!RateLimiter.isAllowed('login', 5, 60000)) {
+        const remaining = RateLimiter.getRemainingAttempts('login', 5);
+        showLoginError(`Too many login attempts. Please wait 1 minute. (${remaining} attempts remaining)`);
+        return;
+      }
+      
+      // Validate inputs with length limits
       if (!email || !password) {
         showLoginError('Please enter both email and password.');
         return;
@@ -1945,10 +2791,18 @@
         return;
       }
       
+      if (!SecurityUtils.validatePassword(password)) {
+        showLoginError('Password must be at least 6 characters.');
+        return;
+      }
+      
       // Show loading
       loginBtn.disabled = true;
       loginBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Signing in...';
       hideLoginError();
+      
+      // Clear password from memory after use
+      passwordInput.value = '';
       
       // Firebase login
       firebase.auth().signInWithEmailAndPassword(email, password)
@@ -2077,19 +2931,104 @@
       const targetSection = document.getElementById(section + 'Section');
       if (targetSection) {
         targetSection.classList.remove('hidden');
+        loadSectionData(section);
       }
       
       // Close mobile sidebar
-      if (window.innerWidth <= 992) {
-        document.getElementById('sidebar').classList.remove('active');
+      if (window.innerWidth <= 1024) {
+        closeSidebar();
       }
+      
+      // Update page title
+      updatePageTitle(section);
       
       appState.currentSection = section;
     }
+    
+    function updatePageTitle(section) {
+      const titles = {
+        'home': 'Dashboard',
+        'courses': 'My Courses',
+        'progress': 'Academic Progress',
+        'payments': 'Payments',
+        'advisor': 'Program Advisor',
+        'messages': 'Messages',
+        'announcements': 'Announcements'
+      };
+      
+      const title = titles[section] || 'Dashboard';
+      document.querySelectorAll('.page-title').forEach(el => {
+        el.textContent = title;
+      });
+    }
 
     function toggleSidebar() {
-      document.getElementById('sidebar').classList.toggle('active');
+      const sidebar = document.getElementById('sidebar');
+      const overlay = document.getElementById('sidebarOverlay');
+      
+      if (window.innerWidth <= 1024) {
+        sidebar.classList.toggle('open');
+        overlay.classList.toggle('show');
+        document.body.style.overflow = sidebar.classList.contains('open') ? 'hidden' : '';
+      }
     }
+    
+    function closeSidebar() {
+      const sidebar = document.getElementById('sidebar');
+      const overlay = document.getElementById('sidebarOverlay');
+      sidebar.classList.remove('open');
+      overlay.classList.remove('show');
+      document.body.style.overflow = '';
+    }
+    
+    // Handle window resize - auto-switch view mode based on screen size
+    let resizeTimer;
+    window.addEventListener('resize', function() {
+      clearTimeout(resizeTimer);
+      resizeTimer = setTimeout(function() {
+        // Update view mode for all sections based on new screen size
+        const newViewMode = getAutoViewMode();
+        const sections = ['homeContent', 'coursesContent', 'progressContent', 
+                        'paymentsContent', 'advisorContent', 'messageContent', 'announcementsContent'];
+        
+        sections.forEach(sectionId => {
+          const container = document.getElementById(sectionId);
+          if (container && container.dataset.rows) {
+            viewModes[sectionId] = newViewMode;
+            
+            try {
+              const rows = JSON.parse(container.dataset.rows || '[]');
+              const keys = JSON.parse(container.dataset.keys || '[]');
+              
+              if (rows.length > 0) {
+                const contentDiv = container.querySelector('.mt-4');
+                if (contentDiv) {
+                  if (newViewMode === 'cards') {
+                    contentDiv.innerHTML = renderAsCards(rows, keys);
+                  } else {
+                    contentDiv.innerHTML = renderAsTable(rows, keys);
+                  }
+                  
+                  // Update button states
+                  const buttons = container.querySelectorAll('.view-btn');
+                  if (buttons.length >= 2) {
+                    buttons[0].classList.toggle('active', newViewMode === 'cards');
+                    buttons[1].classList.toggle('active', newViewMode === 'table');
+                  }
+                }
+              }
+            } catch (e) {
+              console.log('Error updating view on resize:', e);
+            }
+          }
+        });
+        
+        // Close sidebar on resize if screen becomes large
+        if (window.innerWidth > 1024) {
+          closeSidebar();
+        }
+      }, 250); // Debounce resize events
+    });
 
     // ===== DATA FETCHING =====
     function fetchStudentData(email) {
@@ -2118,6 +3057,7 @@
         .then(data => {
           displayAllSections(data);
           updateStats(data);
+          processNotifications(data);
         })
         .catch(error => {
           console.error('Error fetching data:', error);
@@ -2136,9 +3076,23 @@
       displaySectionData('announcementsContent', data.Announcements || []);
     }
 
-    function displaySectionData(elementId, rows) {
+    // Store current view mode for each section
+    const viewModes = {};
+    
+    // Auto-detect view mode based on screen size
+    function getAutoViewMode() {
+      // Use table view on larger screens (desktop/laptop), card view on smaller screens
+      return window.innerWidth >= 1024 ? 'table' : 'cards';
+    }
+    
+    function displaySectionData(elementId, rows, sectionName = '') {
       const container = document.getElementById(elementId);
       if (!container) return;
+      
+      // Initialize or get view mode - auto-detect based on screen size
+      if (!viewModes[elementId]) {
+        viewModes[elementId] = getAutoViewMode();
+      }
       
       if (!rows || rows.length === 0) {
         container.innerHTML = `
@@ -2152,8 +3106,157 @@
       }
       
       const keys = Object.keys(rows[0]);
+      const viewMode = viewModes[elementId];
+      
+      // Add view toggle buttons
+      const toggleButtons = `
+        <div class="view-toggle">
+          <button class="view-btn ${viewMode === 'cards' ? 'active' : ''}" onclick="setViewMode('${elementId}', 'cards')" title="Card View">
+            <i class="fas fa-th-large"></i>
+          </button>
+          <button class="view-btn ${viewMode === 'table' ? 'active' : ''}" onclick="setViewMode('${elementId}', 'table')" title="Table View">
+            <i class="fas fa-table"></i>
+          </button>
+        </div>
+      `;
+      
+      let contentHTML = '';
+      
+      if (viewMode === 'cards') {
+        contentHTML = renderAsCards(rows, keys);
+      } else {
+        contentHTML = renderAsTable(rows, keys);
+      }
+      
+      // Store data for toggle
+      container.dataset.rows = JSON.stringify(rows);
+      container.dataset.keys = JSON.stringify(keys);
+      
+      container.innerHTML = toggleButtons + '<div class="mt-4">' + contentHTML + '</div>';
+    }
+    
+    function setViewMode(elementId, mode) {
+      viewModes[elementId] = mode;
+      const container = document.getElementById(elementId);
+      const rows = JSON.parse(container.dataset.rows || '[]');
+      const keys = JSON.parse(container.dataset.keys || '[]');
+      
+      const contentDiv = container.querySelector('.mt-4');
+      if (mode === 'cards') {
+        contentDiv.innerHTML = renderAsCards(rows, keys);
+      } else {
+        contentDiv.innerHTML = renderAsTable(rows, keys);
+      }
+      
+      // Update button states
+      const buttons = container.querySelectorAll('.view-btn');
+      buttons[0].classList.toggle('active', mode === 'cards');
+      buttons[1].classList.toggle('active', mode === 'table');
+    }
+    
+    function renderAsCards(rows, keys) {
+      const icons = ['blue', 'green', 'orange', 'purple', 'red'];
+      const iconMap = {
+        'course': 'book', 'courses': 'book', 'name': 'user', 'email': 'envelope',
+        'phone': 'phone', 'mobile': 'phone', 'address': 'map-marker', 'status': 'info-circle',
+        'progress': 'chart-line', 'grade': 'star', 'date': 'calendar', 'time': 'clock',
+        'amount': 'dollar-sign', 'payment': 'credit-card', 'message': 'envelope',
+        'announcement': 'bullhorn', 'title': 'heading', 'description': 'list-alt'
+      };
+      
+      let cardsHTML = '<div class="data-cards">';
+      
+      rows.forEach((row, index) => {
+        const iconColor = icons[index % icons.length];
+        const firstKey = keys[0];
+        const firstValue = row[firstKey] || 'Item';
+        
+        // Find icon based on key name
+        let icon = 'file-alt';
+        for (const key of keys) {
+          const lowerKey = key.toLowerCase();
+          for (const [match, iconName] of Object.entries(iconMap)) {
+            if (lowerKey.includes(match)) {
+              icon = iconName;
+              break;
+            }
+          }
+        }
+        
+        cardsHTML += `
+          <div class="data-card">
+            <div class="data-card-header">
+              <div class="data-card-title">${SecurityUtils.escapeHtml(String(firstValue))}</div>
+              <div class="data-card-icon ${iconColor}">
+                <i class="fas fa-${icon}"></i>
+              </div>
+            </div>
+            <div class="data-card-body">
+        `;
+        
+        keys.slice(1).forEach(key => {
+          const value = row[key] || '-';
+          cardsHTML += `
+            <div class="data-card-row">
+              <span class="data-card-label">${SecurityUtils.escapeHtml(key)}</span>
+              <span class="data-card-value">${formatCellValue(key, value)}</span>
+            </div>
+          `;
+        });
+        
+        cardsHTML += '</div></div>';
+      });
+      
+      cardsHTML += '</div>';
+      return cardsHTML;
+    }
+    
+    function formatCellValue(key, value) {
+      const lowerKey = key.toLowerCase();
+      const strValue = String(value);
+      
+      // Check for status
+      if (lowerKey.includes('status')) {
+        let statusClass = 'pending';
+        if (strValue.toLowerCase().includes('complete') || strValue.toLowerCase().includes('active')) statusClass = 'completed';
+        else if (strValue.toLowerCase().includes('progress') || strValue.toLowerCase().includes('ongoing')) statusClass = 'in-progress';
+        else if (strValue.toLowerCase().includes('overdue') || strValue.toLowerCase().includes('failed')) statusClass = 'overdue';
+        return `<span class="status-badge ${statusClass}">${SecurityUtils.escapeHtml(strValue)}</span>`;
+      }
+      
+      // Check for progress
+      if (lowerKey.includes('progress') || lowerKey.includes('%')) {
+        const numValue = parseInt(strValue.replace(/[^0-9]/g, '')) || 0;
+        let fillClass = 'medium';
+        if (numValue >= 80) fillClass = 'high';
+        else if (numValue < 50) fillClass = 'low';
+        return `
+          <div style="display: flex; align-items: center; gap: 8px; width: 100%;">
+            <div class="progress-bar" style="flex: 1;">
+              <div class="progress-fill ${fillClass}" style="width: ${numValue}%"></div>
+            </div>
+            <span style="font-size: 0.75rem; font-weight: 600;">${strValue}</span>
+          </div>
+        `;
+      }
+      
+      // Check for grade
+      if (lowerKey.includes('grade') || lowerKey.includes('mark')) {
+        return `<strong style="color: var(--primary);">${SecurityUtils.escapeHtml(strValue)}</strong>`;
+      }
+      
+      // Check for amount/cost
+      if (lowerKey.includes('amount') || lowerKey.includes('fee') || lowerKey.includes('cost') || lowerKey.includes('price')) {
+        return `<strong style="color: var(--success);">${SecurityUtils.escapeHtml(strValue)}</strong>`;
+      }
+      
+      return SecurityUtils.escapeHtml(strValue);
+    }
+    
+    function renderAsTable(rows, keys) {
+      // Generate desktop table view
       let tableHTML = `
-        <div class="table-container">
+        <div class="table-responsive-wrapper">
           <table class="data-table">
             <thead>
               <tr>
@@ -2167,13 +3270,45 @@
         tableHTML += '<tr>';
         keys.forEach(k => {
           const value = row[k] || '-';
-          tableHTML += `<td>${SecurityUtils.escapeHtml(String(value))}</td>`;
+          tableHTML += `<td>${formatCellValue(k, value)}</td>`;
         });
         tableHTML += '</tr>';
       });
       
       tableHTML += '</tbody></table></div>';
-      container.innerHTML = tableHTML;
+      
+      // Generate mobile card view
+      let mobileCardsHTML = '';
+      if (rows.length > 0) {
+        mobileCardsHTML = '<div class="mobile-card-view">';
+        rows.forEach((row, index) => {
+          const firstKey = keys[0];
+          const firstValue = row[firstKey] || 'Item';
+          
+          mobileCardsHTML += `
+            <div class="mobile-card-item">
+              <div class="mobile-card-item-header">
+                <span class="mobile-card-item-title">${SecurityUtils.escapeHtml(String(firstValue))}</span>
+              </div>
+              <div class="mobile-card-item-body">
+          `;
+          
+          keys.slice(1).forEach(key => {
+            const value = row[key] || '-';
+            mobileCardsHTML += `
+              <div class="mobile-card-item-row">
+                <span class="mobile-card-item-label">${SecurityUtils.escapeHtml(key)}</span>
+                <span class="mobile-card-item-value">${formatCellValue(key, value)}</span>
+              </div>
+            `;
+          });
+          
+          mobileCardsHTML += '</div></div>';
+        });
+        mobileCardsHTML += '</div>';
+      }
+      
+      return tableHTML + mobileCardsHTML;
     }
 
     function showAllEmptyStates() {
@@ -2357,7 +3492,147 @@
     function showProfileMenu() {
       showToast('info', 'Profile', 'Profile settings coming soon!');
     }
-
+    
+    // ===== NOTIFICATION SYSTEM =====
+    let notifications = [];
+    
+    function toggleNotifications() {
+      const panel = document.getElementById('notificationPanel');
+      panel.classList.toggle('show');
+      
+      // Close on outside click
+      if (panel.classList.contains('show')) {
+        document.addEventListener('click', closeNotificationOnOutsideClick);
+      }
+    }
+    
+    function closeNotificationOnOutsideClick(e) {
+      const panel = document.getElementById('notificationPanel');
+      const wrapper = document.querySelector('.notification-wrapper');
+      if (!wrapper.contains(e.target)) {
+        panel.classList.remove('show');
+        document.removeEventListener('click', closeNotificationOnOutsideClick);
+      }
+    }
+    
+    function updateNotificationBadge(count) {
+      const badge = document.getElementById('notificationBadge');
+      if (count > 0) {
+        badge.textContent = count > 9 ? '9+' : count;
+        badge.classList.remove('hidden');
+      } else {
+        badge.classList.add('hidden');
+      }
+    }
+    
+    function addNotification(title, message, type = 'info', time = 'Just now') {
+      const notification = {
+        id: Date.now(),
+        title: SecurityUtils.escapeHtml(title),
+        message: SecurityUtils.escapeHtml(message),
+        type: type,
+        time: time,
+        read: false
+      };
+      notifications.unshift(notification);
+      updateNotificationUI();
+      updateNotificationBadge(notifications.filter(n => !n.read).length);
+    }
+    
+    function updateNotificationUI() {
+      const list = document.getElementById('notificationList');
+      
+      if (notifications.length === 0) {
+        list.innerHTML = `
+          <div class="notification-empty">
+            <i class="fas fa-bell-slash"></i>
+            <p>No notifications</p>
+          </div>
+        `;
+        return;
+      }
+      
+      list.innerHTML = notifications.map(n => `
+        <div class="notification-item ${n.read ? '' : 'unread'}" onclick="markNotificationRead(${n.id})">
+          <div class="notification-icon ${n.type}">
+            <i class="fas fa-${getNotificationIcon(n.type)}"></i>
+          </div>
+          <div class="notification-content">
+            <div class="notification-title">${n.title}</div>
+            <div class="notification-message">${n.message}</div>
+            <div class="notification-time">${n.time}</div>
+          </div>
+        </div>
+      `).join('');
+    }
+    
+    function getNotificationIcon(type) {
+      const icons = {
+        'info': 'info-circle',
+        'success': 'check-circle',
+        'warning': 'exclamation-triangle',
+        'error': 'times-circle',
+        'announcement': 'bullhorn',
+        'course': 'book',
+        'payment': 'credit-card',
+        'message': 'envelope'
+      };
+      return icons[type] || 'bell';
+    }
+    
+    function markNotificationRead(id) {
+      const notification = notifications.find(n => n.id === id);
+      if (notification) {
+        notification.read = true;
+        updateNotificationUI();
+        updateNotificationBadge(notifications.filter(n => !n.read).length);
+      }
+    }
+    
+    function markAllNotificationsRead() {
+      notifications.forEach(n => n.read = true);
+      updateNotificationUI();
+      updateNotificationBadge(0);
+    }
+    
+    // Process data to create notifications
+    function processNotifications(data) {
+      const newNotifications = [];
+      
+      // Check Announcements for notifications
+      const announcements = data.Announcements || [];
+      announcements.slice(0, 5).forEach(item => {
+        const title = item.Title || item.title || item.Announcement || item.announcement || 'New Announcement';
+        newNotifications.push({
+          title: title,
+          message: item.Description || item.description || item.Date || item.date || 'Check announcements for details',
+          type: 'announcement',
+          time: item.Date || item.date || 'Recently'
+        });
+      });
+      
+      // Check Messages for notifications
+      const messages = data.Message || [];
+      messages.slice(0, 3).forEach(item => {
+        newNotifications.push({
+          title: 'New Message',
+          message: item.From || item.Sender || item.Subject || 'You have a new message',
+          type: 'message',
+          time: item.Date || item.date || 'Recently'
+        });
+      });
+      
+      // Add notifications
+      newNotifications.forEach((n, i) => {
+        addNotification(n.title, n.message, n.type, n.time);
+      });
+      
+      // Update badge
+      if (newNotifications.length > 0) {
+        updateNotificationBadge(newNotifications.length);
+      }
+    }
+    
     // Global search handler
     document.getElementById('globalSearch')?.addEventListener('keyup', function(e) {
       if (e.key === 'Enter') {
